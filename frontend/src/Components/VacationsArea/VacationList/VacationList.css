@@ -1,0 +1,10 @@
+.VacationList {
+    
+}
+.VacationList {
+	display: flex;
+  flex-direction: row;
+  gap: 2%;
+  margin-top:2%;
+  margin-left: 2%;
+}
