@@ -3,14 +3,14 @@ import blockNonLoggedIn from "../3-middleware/block-non-logged-in";
 import vacationsLogic from "../5-logic/vacations-logic";
 import VacationsModel from "../4-models/vacations-model";
 import blockNonAdmin from "../3-middleware/block-non-admin";
-import FollowerModel from "../4-models/followers-model";
-import followersLogic from "../5-logic/followers-logic";
+// import FollowerModel from "../4-models/followers-model";
+// import followersLogic from "../5-logic/followers-logic";
 
 
 const router = express.Router();
 
 router.get("/vacations", 
-//  [blockNonLoggedIn],
+ [blockNonLoggedIn],
  async (request: Request, response: Response, next: NextFunction) => {
     try {
         const vacations = await vacationsLogic.getAllVacations ();
@@ -34,8 +34,14 @@ router.get("/vacations-by-code/:vacationCode",
     }
 });
 
-router.post("/vacations",[blockNonAdmin],async(request: Request, response: Response, next: NextFunction)=>{
+router.post("/vacations",
+// [blockNonAdmin],
+async(request: Request, response: Response, next: NextFunction)=>{
   try{
+
+     // Take uploaded file, set it to the body:
+     request.body.image = request.files?.image;
+
     const vacation= new VacationsModel(request.body);
     const addedVacation = await vacationsLogic.addVaction(vacation);
     response.status(201).json(addedVacation);
@@ -57,21 +63,21 @@ router.post("/vacations",[blockNonAdmin],async(request: Request, response: Respo
 //   }
 // })
 
-router.post("/followers/:id/:vacationcode", async (request: Request, response: Response, next: NextFunction) => {
-  try {
-    const id = parseInt(request.params.id);
-    const vacationCode = parseInt(request.params.vacationcode);
+// router.post("/followers/:id/:vacationcode", async (request: Request, response: Response, next: NextFunction) => {
+//   try {
+//     const id = parseInt(request.params.id);
+//     const vacationCode = parseInt(request.params.vacationcode);
 
-    if (isNaN(id) || isNaN(vacationCode)) {
-      throw new Error("Invalid parameters");
-    }
+//     if (isNaN(id) || isNaN(vacationCode)) {
+//       throw new Error("Invalid parameters");
+//     }
 
-    const addedFollower = await followersLogic.addFollwoer(id, vacationCode);
-    response.status(201).json(addedFollower);
-  } catch (err) {
-    next(err);
-  }
-});
+//     const addedFollower = await followersLogic.addFollwoer(id, vacationCode);
+//     response.status(201).json(addedFollower);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 
 

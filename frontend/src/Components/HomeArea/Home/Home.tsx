@@ -36,14 +36,14 @@ function Home(): JSX.Element {
            {currentImage &&<><img src={currentImage} />	
                 <h2>Your Dream  Vacation Starts Here!!</h2>
                 <Button color="secondary" variant="contained" size="large"  onClick={() => {
-    navigate("/auth")
+    navigate("/register")
   }}>Start Your Dream !</Button></>}
   
                  {!currentImage && <>
                     <img src={travel} />	
                 <h2>Your Dream  Vacation Starts Here!!</h2>
                 <Button color="secondary" variant="contained" size="large"  onClick={() => {
-    navigate("/auth")
+    navigate("/register")
   }}>Start Your Dream !</Button>
             </>}
         </div>

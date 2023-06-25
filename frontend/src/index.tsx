@@ -5,6 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import Layout from './Components/LayoutArea/Layout/Layout';
 import { BrowserRouter } from 'react-router-dom';
 import pic from "../../frontend/src/Assests/images/istockphoto-1153938533-612x612.jpg" 
+import interceptorsService from './Services/InterceptorsService';
+
+// Create all interceptors once: 
+interceptorsService.createInterceptors();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

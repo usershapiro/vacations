@@ -1,10 +1,24 @@
 .VacationList {
     
 }
-.VacationList {
+/* .VacationList {
 	display: flex;
   flex-direction: row;
   gap: 2%;
   margin-top:2%;
   margin-left: 2%;
+} */
+.VacationList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px; /* Add padding to the container */
+}
+
+.VacationCard {
+  width: calc(25% - 10px);
+  margin-bottom: 20px;
+}
+.VacationCard:last-child {
+  margin: 0 auto; /* Center the last card in the bottom row */
 }

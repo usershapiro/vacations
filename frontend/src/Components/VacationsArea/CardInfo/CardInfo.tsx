@@ -34,10 +34,21 @@ function CardInfo(): JSX.Element {
 
          {vacation && 
          <>
+       <CardMedia
+        component="img"
+        height="350"
+        image={require(`../../../Assests/vacations-images/${vacation.imageFile}`)}
+        alt={vacation.destination}
+        className="img"
+        
+      />  
+		<Card sx={{ maxWidth: 800
        
-		<Card sx={{ maxWidth: 800}}className="card">
+  }}
+    className="card"
+    
+    >
       
-     
           <CardContent
           className="info"
           > 

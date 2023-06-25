@@ -17,7 +17,9 @@ function VacationCard(props: VacationCardProps): JSX.Element {
     
 <NavLink to={"/vacations/cardInfo/" + props.vacation.vacationCode} >  
 
-    <Card sx={{ maxWidth: 350 }}>
+    <Card sx={{ maxWidth: 350 ,minWidth:350}}
+    
+    >
   <CardActionArea>
     <div style={{ position: 'relative' }}>
       <CardMedia

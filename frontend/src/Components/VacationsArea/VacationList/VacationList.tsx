@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Paper, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Pagination, Paper, Stack, Typography } from "@mui/material";
 import "./VacationList.css";
 import waveImg from "../../../Assests/images/beach-1761410_1280.jpg"
 import VacationsModel from "../../../Models/VacationModel";
@@ -8,6 +8,7 @@ import VacationCard from "../VacationCard/VacationCard";
 import { authStore } from "../../../Redux/AuthState";
 import { useNavigate } from "react-router-dom";
 import useVerifyLoggedIn from "../../../Utils/useVerifyloggedin";
+import SearchArea from "../SearchArea/SearchArea";
 
 function VacationList(): JSX.Element {
   const navigate = useNavigate()
@@ -23,7 +24,17 @@ function VacationList(): JSX.Element {
   console.log(vacations)
   return (
     <div className="VacationList">
+       
+       <SearchArea/>
        {vacations.map(v => <VacationCard key={v.vacationCode} vacation={v} />)}
+   
+      <Stack spacing={2}>
+     <Pagination count={5} color="secondary" />
+
+</Stack>
+
+
+      
     </div>
   );
 }

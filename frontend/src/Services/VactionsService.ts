@@ -19,7 +19,10 @@ class VacationsService  {
         
          return vacationByCode
     }
-
+    public async addVacation(vacation:VacationsModel):Promise<void>{
+        await axios.post<FollowerModel>(appConfig.addVacationUrl , vacation );
+       
+   }
     public async addFollower(id:number,vacationCode:number):Promise<void>{
          await axios.post<FollowerModel>(appConfig.addFollow +id +vacationCode );
         

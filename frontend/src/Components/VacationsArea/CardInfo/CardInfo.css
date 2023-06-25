@@ -12,7 +12,8 @@
     margin-left:auto ;
     margin-right: auto;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 20%;
+    margin-top: 0%;
 }
 h1{
     font-size: larger;
@@ -34,3 +35,29 @@ h1{
     color: rgb(53, 139, 52);
     font-style: italic; 
 }
+
+
+
+
+.VacationCard {
+    position: relative;
+  }
+  
+  /* .img {
+    position: relative;
+  } */
+  
+  .img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Set the opacity value here */
+    opacity: 0.5; /* Set the opacity value here */
+    
+  }
+  
+  
+  

@@ -11,9 +11,13 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import logo from "../../../Assests/images/detailed-travel-logo_23-2148627268.webp"
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import HandleAuth from "../../AuthArea/HndleAuth/HandleAuth";
+import SearchArea from "../../VacationsArea/SearchArea/SearchArea";
 
 function Header(): JSX.Element {
+  const navigate = useNavigate();
+
     const StyledToolbar = styled(Toolbar)(({ theme }) => ({
         alignItems: 'flex-start',
         // paddingTop: theme.spacing(1),
@@ -24,7 +28,9 @@ function Header(): JSX.Element {
         },
       }));
     
-
+function addVacation(){
+  navigate("/add")
+}
 
 
     return (
@@ -39,8 +45,9 @@ function Header(): JSX.Element {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={addVacation}
           >
-            
+        
             <MenuIcon />
           </IconButton>
           <Typography
@@ -50,6 +57,7 @@ function Header(): JSX.Element {
             sx={{ flexGrow: 1, alignSelf: 'flex-end' }}
           >
             <img className="img" src={logo} ></img> 
+            <HandleAuth/>
           </Typography>
          
           <IconButton size="large" aria-label="search" color="inherit">
@@ -70,7 +78,7 @@ function Header(): JSX.Element {
 {/*     
     <img className="img" src={logo} ></img> */}
    
-		
+		  
         </div>
     );
 }

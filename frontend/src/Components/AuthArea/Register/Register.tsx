@@ -1,4 +1,4 @@
-import "./AuthMenu.css";
+import "./Register.css";
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -42,7 +42,7 @@ function AuthMenu(): JSX.Element {
     
 const defaultTheme = createTheme();
     return (
-        <div className="AuthMenu">
+        <div className="Register">
 			 <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -128,10 +128,10 @@ const defaultTheme = createTheme();
                 {...register("password",UserModel.passwordValidation)}
               />
              <span> {formState.errors.password?.message}</span><br/>
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
               <Button
                 type="submit"
                 fullWidth

@@ -32,7 +32,7 @@ function Login(): JSX.Element {
         try {
             await authService.login(credentials);
             // notifyService.success("Welcome!");
-            alert("welcome!")
+            alert("welcome back! ")
             navigate("/vacations");
         }
         catch(err: any) {
@@ -105,7 +105,7 @@ function Login(): JSX.Element {
             <Grid container justifyContent="flex-end">
               <Grid item>
               dont have an account?
-              <NavLink to="/auth"> register now</NavLink>
+              <NavLink to="/register"> register now</NavLink>
               </Grid>
             </Grid>
           </Box>
